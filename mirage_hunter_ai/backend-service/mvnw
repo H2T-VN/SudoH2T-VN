@@ -1,0 +1,28 @@
+#!/bin/sh
+# Maven Wrapper bootstrap script. It downloads Maven 3.9.9 on first use when
+# no system Maven is available; the project itself remains dependency-locked
+# by pom.xml and does not require a globally installed Maven command.
+set -eu
+
+BASE_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+PROPERTIES_FILE="$BASE_DIR/.mvn/wrapper/maven-wrapper.properties"
+MAVEN_VERSION=$(sed -n 's/^distributionUrl=.*apache-maven-\([^/]*\)-bin.zip$/\1/p' "$PROPERTIES_FILE")
+MAVEN_HOME="${MAVEN_USER_HOME:-$HOME/.m2}/wrapper/dists/apache-maven-$MAVEN_VERSION"
+MAVEN_BIN="$MAVEN_HOME/apache-maven-$MAVEN_VERSION/bin/mvn"
+
+if [ ! -x "$MAVEN_BIN" ]; then
+  mkdir -p "$MAVEN_HOME"
+  ARCHIVE="$MAVEN_HOME/apache-maven-$MAVEN_VERSION-bin.zip"
+  URL="https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.zip"
+  if command -v curl >/dev/null 2>&1; then
+    curl -fsSL "$URL" -o "$ARCHIVE"
+  elif command -v wget >/dev/null 2>&1; then
+    wget -q "$URL" -O "$ARCHIVE"
+  else
+    echo "Maven Wrapper needs curl or wget to download Maven $MAVEN_VERSION" >&2
+    exit 1
+  fi
+  unzip -q -o "$ARCHIVE" -d "$MAVEN_HOME"
+fi
+
+exec "$MAVEN_BIN" "$@"

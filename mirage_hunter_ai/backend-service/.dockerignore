@@ -1,0 +1,7 @@
+.git
+.env
+target
+.mvn/timing.properties
+*.log
+uploads
+datasets

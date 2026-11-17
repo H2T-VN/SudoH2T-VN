@@ -1,0 +1,52 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# JavaScript / TypeScript
+node_modules/
+dist/
+frontend/.vite/
+*.tsbuildinfo
+
+# Java / Maven
+target/
+.mvn/timing.properties
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Runtime files
+*.log
+logs/
+cache/
+tmp/
+
+# Uploaded data and model artifacts
+uploads/
+datasets/uploads/
+*.onnx
+*.pt
+*.pth
+*.pkl
+*.pickle
+*.keras
+*.safetensors
+*.bin
+experiments/runs/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Keep project specifications and dependency lockfiles tracked.
