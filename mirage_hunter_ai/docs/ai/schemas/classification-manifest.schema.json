@@ -1,0 +1,197 @@
+{
+  "$defs": {
+    "ClassificationPreprocessing": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": "image-classification-v1",
+          "default": "image-classification-v1",
+          "title": "Version",
+          "type": "string"
+        },
+        "input_size": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "title": "Input Size",
+          "type": "array"
+        },
+        "layout": {
+          "default": "NCHW",
+          "enum": [
+            "NCHW",
+            "NHWC"
+          ],
+          "title": "Layout",
+          "type": "string"
+        },
+        "color_order": {
+          "default": "RGB",
+          "enum": [
+            "RGB",
+            "BGR"
+          ],
+          "title": "Color Order",
+          "type": "string"
+        },
+        "resize_mode": {
+          "default": "stretch",
+          "enum": [
+            "stretch",
+            "shorter_center_crop"
+          ],
+          "title": "Resize Mode",
+          "type": "string"
+        },
+        "resize_shorter": {
+          "anyOf": [
+            {
+              "maximum": 2048,
+              "minimum": 2,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resize Shorter"
+        },
+        "interpolation": {
+          "default": "bilinear",
+          "enum": [
+            "nearest",
+            "bilinear",
+            "bicubic"
+          ],
+          "title": "Interpolation",
+          "type": "string"
+        },
+        "scale": {
+          "default": 255.0,
+          "exclusiveMinimum": 0,
+          "maximum": 65535,
+          "title": "Scale",
+          "type": "number"
+        },
+        "mean": {
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Mean",
+          "type": "array"
+        },
+        "std": {
+          "default": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Std",
+          "type": "array"
+        }
+      },
+      "required": [
+        "input_size"
+      ],
+      "title": "ClassificationPreprocessing",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "format_version": {
+      "const": "classification-onnx-v1",
+      "title": "Format Version",
+      "type": "string"
+    },
+    "task": {
+      "const": "image_classification",
+      "title": "Task",
+      "type": "string"
+    },
+    "model_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "model_file": {
+      "const": "model.onnx",
+      "default": "model.onnx",
+      "title": "Model File",
+      "type": "string"
+    },
+    "model_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Model Sha256",
+      "type": "string"
+    },
+    "class_names": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 1000,
+      "minItems": 2,
+      "title": "Class Names",
+      "type": "array"
+    },
+    "output_kind": {
+      "enum": [
+        "logits",
+        "probabilities"
+      ],
+      "title": "Output Kind",
+      "type": "string"
+    },
+    "preprocessing": {
+      "$ref": "#/$defs/ClassificationPreprocessing"
+    }
+  },
+  "required": [
+    "format_version",
+    "task",
+    "model_id",
+    "model_sha256",
+    "class_names",
+    "output_kind",
+    "preprocessing"
+  ],
+  "title": "ClassificationManifest",
+  "type": "object"
+}

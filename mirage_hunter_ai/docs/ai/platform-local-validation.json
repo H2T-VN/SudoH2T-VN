@@ -1,0 +1,22 @@
+{
+  "scope": "real trained model in new configurable format; 3-image compatibility smoke only",
+  "not_a_new_training_run": true,
+  "not_an_accuracy_benchmark": true,
+  "model_sha256": "100fd0a6d8c8a30599060a2738f5e1895560e14812221275095913d7c2048e6c",
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "baseline_count": 3,
+  "baseline_accuracy": 1.0,
+  "hunt_queries": 3,
+  "total_target_inferences": 9,
+  "custom_format_replay": "passed",
+  "final_cli_report": "artifacts/platform-classification-validated/report.json",
+  "static_graph_checks_enabled_in_final_cli": true,
+  "software_tests_passed": 166,
+  "integration_smoke_response": "docs/integration/local-smoke-response.json",
+  "integration_smoke_scope": "3 real-model search queries, 15 progress events, 3 replays; library only, not HTTP",
+  "public_upload": "NOT_IMPLEMENTED",
+  "http_integration": "NOT_INTEGRATED",
+  "new_trained_architecture": "NOT_RUN"
+}

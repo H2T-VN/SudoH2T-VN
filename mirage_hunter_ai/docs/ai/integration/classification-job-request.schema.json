@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Proposed controlled classification job request; not a deployed API",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["model_id", "dataset_id", "max_queries"],
+  "properties": {
+    "model_id": {"type": "string", "minLength": 1},
+    "dataset_id": {"type": "string", "minLength": 1},
+    "strategy": {"enum": ["random", "tpe_only", "linucb_only", "hybrid"], "default": "hybrid"},
+    "max_queries": {"type": "integer", "minimum": 0, "maximum": 30},
+    "seed": {"type": "integer", "minimum": 0, "maximum": 4294967295, "default": 42}
+  }
+}

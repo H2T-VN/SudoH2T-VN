@@ -1,0 +1,66 @@
+{
+  "observed_date_vietnam": "2026-11-17",
+  "scope": "local CPU inference, replay and library smoke only",
+  "model_sha256": "100fd0a6d8c8a30599060a2738f5e1895560e14812221275095913d7c2048e6c",
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "torch_imported": false,
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.5.5",
+      "Pillow": "12.3.0",
+      "optuna": "5.1.0",
+      "onnxruntime": "1.32.0",
+      "torch": "not_installed",
+      "torchvision": "not_installed",
+      "onnx": "1.23.2",
+      "pydantic": "2.14.3"
+    }
+  },
+  "replay_cases": [
+    {
+      "case": "artifacts\\benchmark-370489176\\random-42\\trial-000045",
+      "action": "blur",
+      "status": "passed",
+      "failure_status": "candidate"
+    },
+    {
+      "case": "artifacts\\benchmark-370489176\\random-42\\trial-000032",
+      "action": "jpeg",
+      "status": "passed",
+      "failure_status": "candidate"
+    }
+  ],
+  "library_smoke": {
+    "status": "completed",
+    "actual_queries": 3,
+    "baseline_queries": 1,
+    "progress_events": [
+      {
+        "done": 1,
+        "total": 3
+      },
+      {
+        "done": 2,
+        "total": 3
+      },
+      {
+        "done": 3,
+        "total": 3
+      }
+    ],
+    "result_json": "docs/samples/hunt-result-real.json",
+    "replay_passed": true,
+    "replayed_case": "artifacts/benchmark-370489176/hybrid-42/trial-000043"
+  },
+  "http_integration": "NOT_INTEGRATED",
+  "production_resources": "NOT_MEASURED",
+  "human_semantic_review": "PENDING",
+  "candidate_records": 75,
+  "deployment_zip": "artifacts\\miragehunter-onnx-cpu-370485049.zip",
+  "deployment_zip_sha256": "41477229674787ce0e61242f9d6e6f89a27f501513ed6befdde4b055f314387b",
+  "review_gallery": "artifacts\\benchmark-370489176\\review.html"
+}

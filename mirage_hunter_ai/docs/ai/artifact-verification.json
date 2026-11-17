@@ -1,0 +1,26 @@
+{
+  "model_run": "370485049",
+  "benchmark_run": "370489176",
+  "sha256_verified": {
+    "mobilenetv3_imagenette.onnx": "100fd0a6d8c8a30599060a2738f5e1895560e14812221275095913d7c2048e6c",
+    "mobilenetv3_imagenette_best.pth": "742d32e7cb8f601dec0fe5fd9576807e09985b098268337db59b7aafa3986e03",
+    "class_to_idx.json": "8f1743e799471e1815d061b9ae473bfde226a0a502cd19a5ad2cae858b30ed70",
+    "preprocessing.json": "147403eb0da6e489db7a6730a7da14a5d0a215ea683db8c8dc056c3c803b5d45",
+    "split_manifest.json": "17a4c0e3178d5d30ae7d33f65c487ab8a317a71f8c28eec2891d88dc4a93981a",
+    "onnx_parity_report.json": "797647ce1dd71c01421075ffc71cdc9e0c705421aa6b58f3ab9f13db64ef94b5"
+  },
+  "deploy_files": [
+    "mobilenetv3_imagenette.onnx",
+    "model_manifest.json",
+    "class_to_idx.json",
+    "preprocessing.json",
+    "onnx_parity_report.json"
+  ],
+  "model_archive_sha256": "d971092c93cb382a6a86f433fce100df1a2b62d7af760735bd63fb532e32cf27",
+  "candidate_records_extracted": 75,
+  "benchmark_rows": 12,
+  "benchmark_csv_matches_transcription": true,
+  "benchmark_archive_sha256": "6905d6936cc7e564860d7c219f5e054ba8084bf41ca3bff962c74520b8971487",
+  "deployment_directory": "artifacts\\deployment-370485049",
+  "evidence_directory": "artifacts\\benchmark-370489176"
+}

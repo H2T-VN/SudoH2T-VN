@@ -1,0 +1,3 @@
+# Operator-reviewed custom ONNX validation; does not provide execution isolation.
+-r requirements-ai.txt
+onnx>=1.17,<2

@@ -1,0 +1,7 @@
+seeds: [42, 123, 2026]
+strategies: [random, tpe_only, linucb_only, hybrid]
+max_queries: 200
+max_images: 100
+startup_trials: 10
+minimization_budget: 0
+output_dir: /kaggle/working/hunter_benchmark

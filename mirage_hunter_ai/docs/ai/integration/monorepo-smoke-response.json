@@ -1,0 +1,405 @@
+{
+  "evidence_kind": "executed_local_library_smoke",
+  "http_verified": false,
+  "not_an_accuracy_benchmark": true,
+  "not_a_new_training_run": true,
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "report": {
+    "scope": "local controlled image classification; no HTTP/public upload",
+    "status": "completed",
+    "run_id": "9c6c61a8aded4d96aec633b9c1cfd621",
+    "dataset_id": "imagenette-selected-compatibility-smoke",
+    "model_id": "mobilenetv3-imagenette-v1",
+    "model_sha256": "100fd0a6d8c8a30599060a2738f5e1895560e14812221275095913d7c2048e6c",
+    "baseline": {
+      "model_id": "mobilenetv3-imagenette-v1",
+      "model_sha256": "100fd0a6d8c8a30599060a2738f5e1895560e14812221275095913d7c2048e6c",
+      "class_names": [
+        "n01440764",
+        "n02102040",
+        "n02979186",
+        "n03000684",
+        "n03028079",
+        "n03394916",
+        "n03417042",
+        "n03425413",
+        "n03445777",
+        "n03888257"
+      ],
+      "count": 3,
+      "inference_queries": 3,
+      "accuracy": 1.0,
+      "macro_precision": 0.3,
+      "macro_recall": 0.3,
+      "macro_f1": 0.3,
+      "zero_division_policy": "0; macro includes all declared classes, including absent classes",
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "per_class": [
+        {
+          "class_index": 0,
+          "class_name": "n01440764",
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        {
+          "class_index": 1,
+          "class_name": "n02102040",
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        {
+          "class_index": 2,
+          "class_name": "n02979186",
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        {
+          "class_index": 3,
+          "class_name": "n03000684",
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        {
+          "class_index": 4,
+          "class_name": "n03028079",
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        {
+          "class_index": 5,
+          "class_name": "n03394916",
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        {
+          "class_index": 6,
+          "class_name": "n03417042",
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        {
+          "class_index": 7,
+          "class_name": "n03425413",
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        {
+          "class_index": 8,
+          "class_name": "n03445777",
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        {
+          "class_index": 9,
+          "class_name": "n03888257",
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      ],
+      "eligible_source_ids": [
+        "images/source-00.png",
+        "images/source-01.png",
+        "images/source-02.png"
+      ],
+      "baseline_incorrect": 0,
+      "runtime_seconds": 0.014945899998565437,
+      "records": [
+        {
+          "source_image_id": "images/source-00.png",
+          "ground_truth": 5,
+          "prediction": 5,
+          "confidence": 0.9993972778320312,
+          "correct": true,
+          "latency_ms": 7.687999997870065
+        },
+        {
+          "source_image_id": "images/source-01.png",
+          "ground_truth": 7,
+          "prediction": 7,
+          "confidence": 0.8871394395828247,
+          "correct": true,
+          "latency_ms": 4.000599998107646
+        },
+        {
+          "source_image_id": "images/source-02.png",
+          "ground_truth": 1,
+          "prediction": 1,
+          "confidence": 0.9320729374885559,
+          "correct": true,
+          "latency_ms": 3.0413999993470497
+        }
+      ]
+    },
+    "hunt_summary": {
+      "confirmed_failures": 0,
+      "candidate_failures": 0,
+      "invalid_trials": 0,
+      "error_trials": 0,
+      "valid_queries": 0,
+      "provisional_queries": 3,
+      "confirmed_failure_rate": null,
+      "queries_to_first_failure": null,
+      "queries_to_first_candidate": null,
+      "unique_confirmed_failures": 0,
+      "unique_candidate_failures": 0,
+      "minimum_confirmed_severity_by_action": {},
+      "minimum_candidate_severity_by_action": {},
+      "baseline_accuracy": 1.0,
+      "baseline_errors": [],
+      "eligible_sources": 3,
+      "baseline_incorrect_sources": 0,
+      "baseline_labelled_evaluated": 3,
+      "runtime_seconds": 0.09010829999897396,
+      "actual_queries": 3,
+      "baseline_queries": 3,
+      "minimization_queries": 0,
+      "total_target_inferences": 6,
+      "minimization_errors": [],
+      "feedback_policy": "quality-screened proxy; confirmation requires review",
+      "invalid_rate": 0.0
+    },
+    "hunt_result": "hunt/result.json",
+    "baseline_evaluation_queries": 3,
+    "hunt_inferences_including_baseline": 6,
+    "total_target_inferences": 9,
+    "note": "Clean evaluation and hunt baseline are separate passes; both are included in total cost."
+  },
+  "progress_events": [
+    {
+      "phase": "preparing",
+      "completed": 0,
+      "total": 2,
+      "unit": "steps"
+    },
+    {
+      "phase": "preparing",
+      "completed": 1,
+      "total": 2,
+      "unit": "steps"
+    },
+    {
+      "phase": "preparing",
+      "completed": 2,
+      "total": 2,
+      "unit": "steps"
+    },
+    {
+      "phase": "baseline",
+      "completed": 0,
+      "total": 3,
+      "unit": "images"
+    },
+    {
+      "phase": "baseline",
+      "completed": 1,
+      "total": 3,
+      "unit": "images"
+    },
+    {
+      "phase": "baseline",
+      "completed": 2,
+      "total": 3,
+      "unit": "images"
+    },
+    {
+      "phase": "baseline",
+      "completed": 3,
+      "total": 3,
+      "unit": "images"
+    },
+    {
+      "phase": "hunt_baseline",
+      "completed": 0,
+      "total": 3,
+      "unit": "images"
+    },
+    {
+      "phase": "hunt_baseline",
+      "completed": 1,
+      "total": 3,
+      "unit": "images"
+    },
+    {
+      "phase": "hunt_baseline",
+      "completed": 2,
+      "total": 3,
+      "unit": "images"
+    },
+    {
+      "phase": "hunt_baseline",
+      "completed": 3,
+      "total": 3,
+      "unit": "images"
+    },
+    {
+      "phase": "hunting",
+      "completed": 1,
+      "total": 3,
+      "unit": "queries"
+    },
+    {
+      "phase": "hunting",
+      "completed": 2,
+      "total": 3,
+      "unit": "queries"
+    },
+    {
+      "phase": "hunting",
+      "completed": 3,
+      "total": 3,
+      "unit": "queries"
+    },
+    {
+      "phase": "finished",
+      "completed": 1,
+      "total": 1,
+      "unit": "steps"
+    }
+  ],
+  "replayed_trials": 3,
+  "replay_inferences_included_in_workflow_total": false,
+  "note": "Replay performs additional inference outside the workflow report's budget."
+}

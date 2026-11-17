@@ -50,3 +50,13 @@ experiments/runs/
 Thumbs.db
 
 # Keep project specifications and dependency lockfiles tracked.
+
+# AI runtime and local development; never commit models/datasets or generated bundles
+artifacts/
+.venv-test/
+.cache/
+*.egg-info/
+*.onnx.data
+*.zip
+experiments/results/*/
+!experiments/results/README.md

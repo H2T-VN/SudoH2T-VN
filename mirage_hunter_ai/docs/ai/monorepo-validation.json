@@ -1,0 +1,41 @@
+{
+  "date_vietnam": "2026-11-17",
+  "branch": "AI",
+  "base_branch": "main",
+  "base_commit": "ac5acc52daee47e153c9de48354b1907a9ea6568",
+  "commit_created": false,
+  "pushed": false,
+  "scope": "AI library, tests, Kaggle experiments, schemas, docs and prior Kiro evidence only",
+  "protected_existing_files_unchanged": 95,
+  "frontend_unchanged": true,
+  "java_backend_unchanged": true,
+  "compose_unchanged": true,
+  "existing_health_endpoint_unchanged": true,
+  "python": "3.12.14",
+  "test_environment": "existing validated AI environment; PYTHONPATH points to this monorepo",
+  "python_311_status": "NOT_RUN_APPLICATION_CONTROL_BLOCKED_EXECUTABLE",
+  "fresh_venv_status": "BLOCKED_NATIVE_DLLS_BY_WINDOWS_APPLICATION_CONTROL",
+  "tests": {
+    "passed": 167,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "ai_cases": 166,
+    "existing_health_cases": 1
+  },
+  "ruff": "passed: app tests tools ../experiments",
+  "new_bundle_sha256": "38bf3f7894c08255547a8ac0d89aec61ecb149191de43e0f889fb91a4ac6e745",
+  "kaggle_new_source_status": "NOT_RUN",
+  "new_kiro_execution": "NOT_RUN",
+  "onnx_smoke": {
+    "model_sha256": "100fd0a6d8c8a30599060a2738f5e1895560e14812221275095913d7c2048e6c",
+    "images": 3,
+    "search_queries": 3,
+    "workflow_inferences": 9,
+    "progress_events": 15,
+    "replayed_trials": 3,
+    "http_inference_verified": false,
+    "accuracy_benchmark": false
+  },
+  "model_weights_and_images": "local ignored artifacts only; not tracked"
+}

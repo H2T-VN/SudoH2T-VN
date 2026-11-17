@@ -1,0 +1,92 @@
+{
+  "properties": {
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "status": {
+      "title": "Status",
+      "type": "string"
+    },
+    "model_id": {
+      "title": "Model Id",
+      "type": "string"
+    },
+    "strategy": {
+      "title": "Strategy",
+      "type": "string"
+    },
+    "seed": {
+      "title": "Seed",
+      "type": "integer"
+    },
+    "max_queries": {
+      "title": "Max Queries",
+      "type": "integer"
+    },
+    "actual_queries": {
+      "title": "Actual Queries",
+      "type": "integer"
+    },
+    "baseline_queries": {
+      "title": "Baseline Queries",
+      "type": "integer"
+    },
+    "minimization_queries": {
+      "title": "Minimization Queries",
+      "type": "integer"
+    },
+    "total_target_inferences": {
+      "title": "Total Target Inferences",
+      "type": "integer"
+    },
+    "confirmed_failures": {
+      "title": "Confirmed Failures",
+      "type": "integer"
+    },
+    "candidate_failures": {
+      "title": "Candidate Failures",
+      "type": "integer"
+    },
+    "summary": {
+      "additionalProperties": true,
+      "title": "Summary",
+      "type": "object"
+    },
+    "failure_cases": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Failure Cases",
+      "type": "array"
+    },
+    "trials": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Trials",
+      "type": "array"
+    }
+  },
+  "required": [
+    "run_id",
+    "status",
+    "model_id",
+    "strategy",
+    "seed",
+    "max_queries",
+    "actual_queries",
+    "baseline_queries",
+    "minimization_queries",
+    "total_target_inferences",
+    "confirmed_failures",
+    "candidate_failures",
+    "summary",
+    "failure_cases",
+    "trials"
+  ],
+  "title": "HuntResult",
+  "type": "object"
+}

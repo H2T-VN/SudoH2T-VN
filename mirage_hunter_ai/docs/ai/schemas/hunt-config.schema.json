@@ -1,0 +1,88 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "model_id": {
+      "default": "mobilenetv3-imagenette-v1",
+      "title": "Model Id",
+      "type": "string"
+    },
+    "dataset_id": {
+      "default": "local-labelled",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "strategy": {
+      "default": "hybrid",
+      "enum": [
+        "random",
+        "tpe_only",
+        "linucb_only",
+        "hybrid"
+      ],
+      "title": "Strategy",
+      "type": "string"
+    },
+    "max_queries": {
+      "default": 100,
+      "maximum": 100000,
+      "minimum": 0,
+      "title": "Max Queries",
+      "type": "integer"
+    },
+    "seed": {
+      "default": 42,
+      "maximum": 4294967295,
+      "minimum": 0,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "transforms": {
+      "items": {
+        "enum": [
+          "brightness",
+          "blur",
+          "noise",
+          "jpeg"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Transforms",
+      "type": "array"
+    },
+    "startup_trials": {
+      "default": 10,
+      "minimum": 1,
+      "title": "Startup Trials",
+      "type": "integer"
+    },
+    "alpha": {
+      "default": 0.5,
+      "exclusiveMinimum": 0,
+      "title": "Alpha",
+      "type": "number"
+    },
+    "regularization": {
+      "default": 1.0,
+      "exclusiveMinimum": 0,
+      "title": "Regularization",
+      "type": "number"
+    },
+    "exploration": {
+      "default": 0.1,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Exploration",
+      "type": "number"
+    },
+    "minimization_budget": {
+      "default": 0,
+      "maximum": 10000,
+      "minimum": 0,
+      "title": "Minimization Budget",
+      "type": "integer"
+    }
+  },
+  "title": "HuntConfig",
+  "type": "object"
+}

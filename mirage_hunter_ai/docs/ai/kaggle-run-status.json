@@ -1,0 +1,169 @@
+{
+  "observed_date_vietnam": "2026-11-17",
+  "notebook": "H2T MirageHunter 01 - Train MobileNetV3 Imagenette",
+  "url": "https://www.kaggle.com/code/hungdeptrai123456/h2t-miragehunter-01-train-mobilenetv3-imagenette?scriptVersionId=370340546",
+  "version_name": "Train v2 - unpack Imagenette TGZ - seed42",
+  "execution_mode": "Save & Run All (Commit)",
+  "observed_status": "TRAINING_COMPLETED_OUTPUTS_VERIFIED",
+  "run_id": "370340546",
+  "previous_failed_run": {
+    "run_id": "370337350",
+    "reason": "Imagenette input was a TGZ archive; original loader only searched unpacked train/val folders."
+  },
+  "accelerator": "GPU T4 x2",
+  "internet": "on",
+  "config": {
+    "epochs": 8,
+    "batch_size": 64,
+    "seed": 42
+  },
+  "inputs": [
+    "https://www.kaggle.com/datasets/hungdeptrai123456/h2t-miragehunter-ai-source-v2-tgz",
+    "https://www.kaggle.com/datasets/jhoward/imagenette-160-px"
+  ],
+  "source_bundle_sha256": "226d9da9156ac584f6587237f58a5618f6306ab22e824ed36db1d5bdac189869",
+  "dataset_archive_sha256": "4bacf19aa3f2454e330ac366c98ac1e470ccc6bebca8ff63ecc7f339cb2ead11",
+  "evidence": "Kaggle version 2 logs showed archive extraction, epochs 1-8, final classification metrics and Training finished. Output tab listed all twelve training files. At the original observation these were remote only; the later export ZIP has now been downloaded and its checkpoint hash matches this training run. Clean accuracy has not been independently reevaluated locally.",
+  "training_metrics": {
+    "dev_accuracy": 0.9732454439705313,
+    "test_accuracy": 0.968,
+    "test_count": 500,
+    "best_epoch": 8,
+    "checkpoint_sha256": "742d32e7cb8f601dec0fe5fd9576807e09985b098268337db59b7aafa3986e03"
+  },
+  "model_artifacts": {
+    "status": "DOWNLOADED_EXPORT_ARCHIVE_HASH_VERIFIED",
+    "directory": "miragehunter_artifacts",
+    "files": [
+      "class_names.json",
+      "class_to_idx.json",
+      "classification_metrics.json",
+      "confusion_matrix.csv",
+      "environment.json",
+      "mobilenetv3_imagenette_best.pth",
+      "preprocessing.json",
+      "split_manifest.json",
+      "train_config.json",
+      "trained_parameters.json",
+      "training_history.csv",
+      "training_resume.pth"
+    ],
+    "download_archive": "miragehunter-output.zip",
+    "download_archive_display_size": "24.83 MB",
+    "local_verification": "docs/artifact-verification.json"
+  },
+  "notebook_02_status": "COMPLETED_PARITY_PASSED",
+  "notebook_02": {
+    "run_id": "370485049",
+    "url": "https://www.kaggle.com/code/hungdeptrai123456/h2t-miragehunter-02-export-verify-onnx/notebook?scriptVersionId=370485049",
+    "execution_mode": "Save & Run All (Commit)",
+    "accelerator": "None (CPU)",
+    "displayed_runtime": "1m 7s",
+    "source_bundle_sha256": "7b448bbdf36666d1359887c4218da12454f37418da50dfd5ed4f434b0ab71ed5",
+    "parity": {
+      "status": "passed",
+      "samples": 32,
+      "split": "dev",
+      "max_abs_logit_diff": 2.765655517578125e-05,
+      "mean_abs_logit_diff": 4.385784268379211e-06,
+      "top1_agreement": 1.0,
+      "mismatches": 0,
+      "preprocessing_max_abs_diff": 0.0,
+      "atol": 0.0001,
+      "rtol": 0.0001
+    },
+    "environment": {
+      "python": "3.13.18",
+      "numpy": "2.1.3",
+      "Pillow": "12.3.0",
+      "optuna": "5.0.0",
+      "onnxruntime": "1.32.0",
+      "torch": "2.11.0+cpu",
+      "torchvision": "0.26.0+cpu",
+      "onnx": "1.23.2",
+      "pydantic": "2.14.1"
+    },
+    "evidence": "Rendered Kaggle export passed on 32 dev images. Export ZIP downloaded; CRC and all six manifest hashes verified locally; CPU adapter and saved-case replay passed. See artifact-verification.json and local-ai-validation.json.",
+    "local_validation": "docs/local-ai-validation.json"
+  },
+  "notebook_03_status": "COMPLETED_OUTPUTS_VERIFIED",
+  "notebook_03": {
+    "run_id": "370489176",
+    "url": "https://www.kaggle.com/code/hungdeptrai123456/h2t-miragehunter-03-hunter-benchmark?scriptVersionId=370489176",
+    "execution_mode": "Save & Run All (Commit)",
+    "observed_status": "179.3 second run - successful",
+    "accelerator": "None (CPU)",
+    "inputs": [
+      "https://www.kaggle.com/datasets/jhoward/imagenette-160-px",
+      "https://www.kaggle.com/code/hungdeptrai123456/h2t-miragehunter-02-export-verify-onnx?scriptVersionId=370485049"
+    ],
+    "source_bundle_sha256": "7b448bbdf36666d1359887c4218da12454f37418da50dfd5ed4f434b0ab71ed5",
+    "model_sha256": "100fd0a6d8c8a30599060a2738f5e1895560e14812221275095913d7c2048e6c",
+    "config": {
+      "seeds": [
+        42,
+        123,
+        2026
+      ],
+      "strategies": [
+        "random",
+        "tpe_only",
+        "linucb_only",
+        "hybrid"
+      ],
+      "max_queries": 200,
+      "max_images": 100,
+      "startup_trials": 10,
+      "minimization_budget": 0
+    },
+    "actual_runs": 12,
+    "search_queries": 2400,
+    "baseline_queries": 1200,
+    "total_target_inferences": 3600,
+    "subset_baseline_accuracy": 0.92,
+    "confirmed_failures": 0,
+    "process_peak_ram_mb": 194.32421875,
+    "summary": {
+      "random": {
+        "candidate_mean": 4.333333333333333,
+        "candidate_std": 0.5773502691896258,
+        "unique_candidate_mean": 3.6666666666666665,
+        "unique_candidate_std": 0.5773502691896258,
+        "runtime_mean_seconds": 9.671158762666684
+      },
+      "tpe_only": {
+        "candidate_mean": 6.666666666666667,
+        "candidate_std": 5.131601439446884,
+        "unique_candidate_mean": 4.333333333333333,
+        "unique_candidate_std": 2.8867513459481287,
+        "runtime_mean_seconds": 10.751935182333341
+      },
+      "linucb_only": {
+        "candidate_mean": 5.666666666666667,
+        "candidate_std": 0.5773502691896258,
+        "unique_candidate_mean": 4.333333333333333,
+        "unique_candidate_std": 0.5773502691896258,
+        "runtime_mean_seconds": 9.92316034066667
+      },
+      "hybrid": {
+        "candidate_mean": 8.333333333333334,
+        "candidate_std": 1.1547005383792517,
+        "unique_candidate_mean": 5.0,
+        "unique_candidate_std": 0.0,
+        "runtime_mean_seconds": 10.496099412333328
+      }
+    },
+    "output_archive": "miragehunter-output.zip",
+    "output_archive_display_size": "263.64 MB",
+    "local_csv": "docs/benchmark-370489176.csv",
+    "evidence": "Kaggle successful status and all 12 output runs verified. Downloaded ZIP CRC passed; parsed benchmark.csv exactly matches prior transcription; 75 candidate evidence pairs extracted. Three saved cases replayed locally. Human semantic review remains pending. RAM is cumulative Kaggle process high-water, not production memory.",
+    "local_archive_status": "DOWNLOADED_CRC_VERIFIED_CSV_MATCHED"
+  },
+  "current_local_bundle": {
+    "sha256": "38bf3f7894c08255547a8ac0d89aec61ecb149191de43e0f889fb91a4ac6e745",
+    "change": "AI library ported to monorepo ai-service/app with pipelines/minimization modules; historical Kaggle runs unchanged",
+    "kaggle_run_status": "NOT_RUN_FOR_THIS_SOURCE_VERSION",
+    "tests_passed": 167,
+    "ruff": "passed"
+  }
+}

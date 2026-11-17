@@ -1,0 +1,112 @@
+{
+  "evidence_kind": "executed_local_library_smoke",
+  "http_verified": false,
+  "note": "Internal artifact_path requires backend asset mapping; this is one actual trial, not an HTTP response.",
+  "trial": {
+    "run_id": "ca41c95a8e0341fdb710d86dae5e6fca",
+    "trial_id": 0,
+    "source_image_id": "images/source-02.png",
+    "model_sha256": "100fd0a6d8c8a30599060a2738f5e1895560e14812221275095913d7c2048e6c",
+    "model_id": "mobilenetv3-imagenette-custom-format-smoke",
+    "preprocessing": {
+      "version": "image-classification-v1",
+      "input_size": [
+        224,
+        224
+      ],
+      "layout": "NCHW",
+      "color_order": "RGB",
+      "resize_mode": "shorter_center_crop",
+      "resize_shorter": 256,
+      "interpolation": "bilinear",
+      "scale": 255.0,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "class_names": [
+      "n01440764",
+      "n02102040",
+      "n02979186",
+      "n03000684",
+      "n03028079",
+      "n03394916",
+      "n03417042",
+      "n03425413",
+      "n03445777",
+      "n03888257"
+    ],
+    "strategy": "hybrid",
+    "action": "noise",
+    "severity": 0.8348421486656494,
+    "seed": 1884968545,
+    "transform": {
+      "kind": "noise",
+      "severity": 0.8348421486656494,
+      "seed": 1884968545,
+      "direction": 1
+    },
+    "physical_parameters": {
+      "sigma_uint8": 8.348421486656495
+    },
+    "ground_truth": 1,
+    "original_pred": 1,
+    "original_conf": 0.9320729374885559,
+    "original_probabilities": [
+      0.00014732246927451342,
+      0.9320729374885559,
+      0.00010250201739836484,
+      0.051360953599214554,
+      0.0002808950375765562,
+      6.400283746188506e-05,
+      0.0005802581436000764,
+      0.0005170306540094316,
+      0.00011953952343901619,
+      0.014754477888345718
+    ],
+    "context": [
+      1.0,
+      0.4563494265630781,
+      0.1872717507866047,
+      0.5903908231044579,
+      0.9320729374885559,
+      0.12800005997862896
+    ],
+    "feature_version": "luminance-sharpness-confidence-v1",
+    "source_sha256": "ae3b961521dcfa0b1aea32568816b756f08fe86212840120531c2413f3df4f57",
+    "image_sha256": "74dbbbaf4a1e2608cb12cdcbc7ba7be927db3b51a145256e12930f9e0c388a8c",
+    "validity_status": "provisionally_valid",
+    "validity_reason": "automatic_quality_screen_only",
+    "timestamp": "2026-11-17T08:44:51.468674+00:00",
+    "transformed_pred": 1,
+    "transformed_conf": 0.9020135402679443,
+    "transformed_probabilities": [
+      0.00028258294332772493,
+      0.9020135402679443,
+      0.00029515387723222375,
+      0.044160787016153336,
+      0.001031619613058865,
+      0.0002505072043277323,
+      0.0008552484796382487,
+      0.0003648868587333709,
+      0.0004111314192414284,
+      0.05033455789089203
+    ],
+    "margin": -0.8516789674758911,
+    "failure_status": "not_failed",
+    "confidence_delta": -0.030059397220611572,
+    "confidence_changed": true,
+    "confidence_change_atol": 1e-05,
+    "feedback_kind": "automatic_proxy",
+    "query_index": 1,
+    "latency_ms": 3.4449000013410114,
+    "artifact_path": "trial-000000"
+  }
+}

@@ -2,7 +2,7 @@
 
 H2T-MirageHunter là scaffold cho nền tảng kiểm tra độ bền của model phân loại ảnh. Luồng mục tiêu là tải ảnh và nhãn đúng, chọn tối đa ba model tương thích, áp dụng biến đổi có kiểm soát, so sánh dự đoán trên ảnh gốc/ảnh biến đổi và lưu case lỗi có thể tái lập.
 
-Phiên bản hiện tại tập trung vào kết nối service và hợp đồng API: frontend React/Vite, backend Spring Boot, AI service FastAPI và MySQL. Chưa có inference, thuật toán tìm kiếm, minimization, upload thật hay số liệu benchmark.
+Phiên bản hiện tại tập trung vào kết nối service và hợp đồng API: frontend React/Vite, backend Spring Boot, AI service FastAPI và MySQL. Phần AI đã được bổ sung tại `ai-service/app`: ONNX inference, baseline, Hunter và minimization; xem [AI README](ai-service/README.md) và [ghi chú chuyển repo](docs/ai/monorepo-import.md). Các endpoint inference/experiment, upload và kết nối FE/BE tới pipeline AI chưa được tích hợp.
 
 ## Điều kiện môi trường
 
