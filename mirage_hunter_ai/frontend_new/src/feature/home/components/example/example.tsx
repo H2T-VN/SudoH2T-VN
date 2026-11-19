@@ -27,7 +27,7 @@ const examples = [
 
 const Example = () => {
   return (
-    <section className={styles.section} aria-labelledby="example-title">
+    <section id="demo" className={styles.section} aria-labelledby="example-title">
       <h2 id="example-title" className={styles.title}>
         Mô hình có còn nhận diện đúng khi ảnh thay đổi?
       </h2>

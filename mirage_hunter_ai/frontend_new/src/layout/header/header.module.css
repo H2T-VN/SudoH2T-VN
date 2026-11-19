@@ -1,15 +1,17 @@
 .header {
+  position: relative;
+  z-index: 10;
   width: 100%;
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
 }
 
+/* Layout: [Logo] ....auto.... [Nav] [Search] [Settings] [Kiểm thử] */
 .container {
-  display: grid;
-  grid-template-columns: minmax(0, auto) minmax(220px, 520px) auto;
+  display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   width: min(100%, 1600px);
   min-height: 72px;
   margin: 0 auto;
@@ -21,7 +23,7 @@
   min-width: 0;
   flex-direction: column;
   align-items: flex-start;
-  justify-self: start;
+  margin-right: auto; /* đẩy toàn bộ nhóm còn lại sang phải */
 }
 
 .brand {
@@ -38,104 +40,233 @@
 
 .credit {
   margin-top: 4px;
-  color: #111827;
-  font-size: 0.68rem;
-  font-weight: 400;
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 500;
   font-style: italic;
   letter-spacing: 0.04em;
-  line-height: 1;
+  line-height: 1.2;
+}
+
+
+.brand-shimmer {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
 }
 
 .logoName {
-  --logo-base: #111827;
+  color: #111827;
 }
 
 .logoAccent {
-  --logo-base: #960320;
+  color: #960320;
 }
 
-.brand-shimmer {
-  color: transparent;
-  background-image:
-    linear-gradient(
-      120deg,
-      transparent 35%,
-      rgba(255, 77, 109, 0.85) 46%,
-      rgba(255, 255, 255, 0.95) 50%,
-      transparent 54%
-    ),
-    linear-gradient(var(--logo-base), var(--logo-base));
-  background-repeat: no-repeat;
-  background-size: 300% 300%, 100% 100%;
-  background-position: 100% center, 0 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: brand-sweep 3s ease-in-out infinite;
+.brand:focus-visible,
+.nav a:focus-visible,
+.mobileNav summary:focus-visible,
+.mobileMenu a:focus-visible,
+.control:focus-visible,
+.actionButton:focus-visible {
+  outline: 2px solid #db2777;
+  outline-offset: 3px;
 }
 
-@keyframes brand-sweep {
-  0% {
-    background-position: 100% center, 0 0;
-  }
-
-  60% {
-    background-position: -100% center, 0 0;
-  }
-
-  100% {
-    background-position: -100% center, 0 0;
-  }
+/* ---------- Nav ---------- */
+.nav {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
 }
 
-.brand-shimmer:hover {
-  animation-duration: 1.2s;
+.nav a,
+.mobileMenu a {
+  border-radius: 8px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .brand-shimmer {
-    animation: none;
-  }
+.nav a {
+  padding: 8px 9px;
 }
 
+.nav a:hover,
+.nav a:focus-visible,
+.mobileMenu a:hover,
+.mobileMenu a:focus-visible {
+  background: #fdf2f8;
+  color: #9f1239;
+}
+
+.nav a:active,
+.mobileMenu a:active {
+  background: #fce7f3;
+  color: #831843;
+}
+
+/* ---------- Mobile nav (hamburger) ---------- */
+.mobileNav {
+  position: relative;
+  display: none;
+  flex: none;
+}
+
+.mobileNav summary {
+  display: grid;
+  width: 40px;
+  min-height: 40px;
+  place-items: center;
+  border-radius: 8px;
+  color: #111827;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.mobileNav summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobileNav summary:hover,
+.mobileNav[open] summary {
+  background: #fdf2f8;
+  color: #9f1239;
+}
+
+.menuIcon {
+  display: grid;
+  gap: 4px;
+  width: 19px;
+}
+
+.menuIcon span {
+  display: block;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.mobileMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  display: grid;
+  min-width: 176px;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
+}
+
+.mobileMenu a {
+  display: block;
+  padding: 10px 12px;
+}
+
+/* ---------- Search ---------- */
 .searchBar {
   display: flex;
-  width: 100%;
+  flex: 0 1 260px;
+  width: 260px;
   min-width: 0;
-  gap: 8px;
+  overflow: hidden;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #ffffff;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.searchBar input,
-.searchBar button,
-.actionButton {
+.searchBar:focus-within {
+  border-color: #ec4899;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.2);
+}
+
+.searchInput {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+.searchIcon {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-left: 12px;
+  color: #6b7280;
+}
+
+.searchBar input {
+  min-width: 0;
+  flex: 1 1 auto;
   min-height: 40px;
-  box-sizing: border-box;
-  padding: 9px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  padding: 9px 10px;
+  border: 0;
+  background: transparent;
+  color: #111827;
   font: inherit;
   font-size: 0.9rem;
 }
 
-.searchBar input {
-  flex: 1 1 auto;
-  min-width: 0;
-  background: #f5f7fa;
-  color: #111827;
+.searchBar input:focus {
+  outline: none;
 }
 
-.searchBar button {
-  flex: 0 0 auto;
+.searchBar input::placeholder {
+  color: #6b7280;
+  opacity: 1;
+}
+
+.searchButton {
+  display: grid;
+  width: 44px;
+  min-width: 44px;
+  min-height: 40px;
+  place-items: center;
+  border: 0;
+  border-left: 1px solid #d1d5db;
   background: #ffffff;
-  color: #111827;
+  color: #9f1239;
   cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
 }
 
+.searchButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+.searchButton:hover {
+  background: #fdf2f8;
+  color: #831843;
+}
+
+.searchButton:active {
+  background: #fce7f3;
+}
+
+.searchButton:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid #db2777;
+  outline-offset: -4px;
+}
+
+/* ---------- Actions ---------- */
 .actions {
   display: flex;
-  min-width: 0;
+  flex: none;
   align-items: center;
-  justify-self: end;
   gap: 8px;
 }
 
@@ -147,78 +278,88 @@
   place-items: center;
   border-radius: 8px;
   color: #111827;
-}
-
-.searchBar button,
-.control {
-  background: #ffffff;
-  color: #111827;
   cursor: pointer;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
 }
 
-.control,
+.control:hover {
+  background: #f3f4f6;
+  color: #9f1239;
+}
+
+.control:active {
+  background: #e5e7eb;
+}
+
 .actionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 1px solid #9f1239;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #be185d, #9f1239);
+  box-shadow: 0 8px 18px rgba(197, 45, 88, 0.2);
+  color: #fff7f8;
+  font-size: 0.9rem;
+  font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-}
-
-.actionButton {
-  background: #141414;
-  border-color: #141414;
-  color: #ffffff;
-  font-weight: 600;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .actionButton:hover {
-  background: #960320;
-  border-color: #960320;
+  border-color: #831843;
+  background: linear-gradient(135deg, #be185d, #831843);
+  box-shadow: 0 10px 22px rgba(197, 45, 88, 0.28);
+  transform: translateY(-1px);
 }
 
-.searchBar input:focus-visible,
-.searchBar button:focus-visible,
-.control:focus-visible,
-.actionButton:focus-visible {
-  outline: 2px solid #960320;
-  outline-offset: 2px;
+.actionButton:active {
+  box-shadow: 0 5px 12px rgba(197, 45, 88, 0.2);
+  transform: translateY(1px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .nav {
+    display: none;
+  }
+
+  .mobileNav {
+    display: block;
+  }
+
+  .searchBar {
+    flex-basis: 220px;
+    width: 220px;
+  }
 }
 
 @media (max-width: 900px) {
   .container {
-    grid-template-columns: minmax(0, 1fr) auto;
+    flex-wrap: wrap;
     gap: 12px 16px;
-    padding-block: 12px;
   }
 
+  /* Hàng 1: logo + hamburger + actions. Hàng 2: ô tìm kiếm full width */
   .searchBar {
-    grid-column: 1 / -1;
-    grid-row: 2;
+    order: 1;
+    flex: 1 1 100%;
+    width: 100%;
   }
 }
 
 @media (max-width: 560px) {
   .container {
-    grid-template-columns: 1fr;
     gap: 10px 12px;
     padding-inline: 16px;
   }
 
-  .actions {
-    grid-column: 1;
-    grid-row: 2;
-    justify-self: start;
-  }
-
-  .searchBar {
-    grid-row: 3;
-  }
-
   .brand {
     font-size: clamp(1.35rem, 6.2vw, 1.6rem);
-  }
-
-  .credit {
-    font-size: 0.6rem;
   }
 
   .actions {
@@ -238,5 +379,22 @@
   .actionButton {
     padding-inline: 8px;
     font-size: 0.82rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav a,
+  .mobileNav summary,
+  .mobileMenu a,
+  .searchBar,
+  .searchButton,
+  .control,
+  .actionButton {
+    transition: none;
+  }
+
+  .actionButton:hover,
+  .actionButton:active {
+    transform: none;
   }
 }

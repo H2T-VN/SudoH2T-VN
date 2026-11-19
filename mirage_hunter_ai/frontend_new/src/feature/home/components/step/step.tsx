@@ -43,7 +43,7 @@ const steps = [
 
 const Step = () => {
   return (
-    <section className={styles.section} aria-labelledby="steps-title">
+    <section id="history" className={styles.section} aria-labelledby="steps-title">
       <div className={styles.intro}>
         <h2 id="steps-title" className={styles.title}>
           Quy trình kiểm thử

@@ -3,7 +3,7 @@ import styles from "./heroBanner.module.css";
 
 const HeroBanner = () => {
   return (
-    <section className={styles.hero} aria-labelledby="hero-title">
+    <section id="about" className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.grid} aria-hidden="true" />
 
       <div className={styles.content}>

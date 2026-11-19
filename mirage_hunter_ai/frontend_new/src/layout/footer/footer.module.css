@@ -30,6 +30,11 @@
   white-space: nowrap;
 }
 
+.brand:focus-visible {
+  outline: 2px solid #f9a8d4;
+  outline-offset: 4px;
+}
+
 .logoName {
   --logo-base: #ffffff;
 }
@@ -99,6 +104,15 @@
 .links a:hover,
 .links a:focus-visible {
   color: #ffffff;
+}
+
+.links a:focus-visible {
+  outline: 2px solid #f9a8d4;
+  outline-offset: 3px;
+}
+
+.links a:active {
+  color: #f9a8d4;
 }
 
 .bottomBar {

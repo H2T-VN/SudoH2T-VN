@@ -15,7 +15,7 @@
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   align-items: center;
   gap: clamp(24px, 4vw, 64px);
-  padding: clamp(32px, 6vw, 88px);
+  padding: clamp(32px, 5vw, 64px);
   border-radius: 24px;
   background:
     radial-gradient(circle at 86% 18%, rgba(225, 67, 103, 0.2), transparent 30%),
@@ -66,6 +66,10 @@
 /* ---------- Nội dung bên trái ---------- */
 
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   min-width: 0;
   position: relative;
   z-index: 2;
@@ -74,7 +78,7 @@
 
 .hero .title {
   color: #f8fafc !important;
-  text-align: right;
+  text-align: left;
   margin: 0;
   max-width: 100%;
   font-size: clamp(36px, 4.3vw, 50px);
@@ -120,18 +124,23 @@
   border-radius: 10px;
   font-weight: 700;
   text-decoration: none;
-  transition: background-color 180ms ease, transform 180ms ease;
+  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .primaryButton {
-  background: linear-gradient(135deg, #ff8299, #c52d58);
+  background: linear-gradient(135deg, #be185d, #9f1239);
   color: #fff7f8;
   box-shadow: 0 10px 26px rgba(197, 45, 88, 0.28);
 }
 
 .primaryButton:hover {
-  background: linear-gradient(135deg, #ff9eaf, #dc416a);
+  background: linear-gradient(135deg, #be185d, #831843);
   transform: translateY(-2px);
+}
+
+.primaryButton:active,
+.secondaryButton:active {
+  transform: translateY(1px);
 }
 
 .secondaryButton {
@@ -265,7 +274,7 @@
 
 .core span {
   color: #ffc1cb;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.1em;
 }
 
@@ -283,7 +292,7 @@
 
 .node span {
   color: #d7cfe3;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .node strong {
@@ -318,8 +327,8 @@
   bottom: 0;
   width: 100%;
   padding-inline: 8px;
-  color: #c9c0d8;
-  font-size: 12px;
+  color: #e3ddea;
+  font-size: 14px;
   line-height: 1.4;
   text-align: center;
 }
@@ -470,7 +479,7 @@
   }
 
   .node span {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .node strong {
@@ -478,7 +487,7 @@
   }
 
   .caption {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 
