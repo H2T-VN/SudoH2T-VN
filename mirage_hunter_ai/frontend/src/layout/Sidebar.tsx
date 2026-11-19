@@ -23,7 +23,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
     <aside className={'sidebar' + (open ? ' sidebar--open' : '')}>
       <div className="brand">
         <div className="brand__mark">M</div>
-        <div className="brand__copy"><strong>MirageHunter</strong><span>AI robustness lab</span></div>
+        <div className="brand__copy"><strong>MirageHunter</strong><span>Robustness lab</span></div>
         <button className="icon-button sidebar__close" onClick={onClose} aria-label="Đóng menu"><Icon name="close" size={20} /></button>
       </div>
       <div className="sidebar__section-label">WORKSPACE</div>
@@ -38,7 +38,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
         <NavLink className={({ isActive }) => 'nav-link' + (isActive ? ' nav-link--active' : '')} to="/docs" onClick={onClose}><span className="nav-link__icon"><Icon name="external" size={18} /></span><span>Docs & API</span></NavLink>
         <NavLink className={({ isActive }) => 'nav-link' + (isActive ? ' nav-link--active' : '')} to="/settings" onClick={onClose}><span className="nav-link__icon"><Icon name="settings" size={18} /></span><span>Settings</span></NavLink>
       </nav>
-      <div className="sidebar__footer"><div className="workspace-card"><div className="workspace-card__avatar">DS</div><div><strong>Demo workspace</strong><span>Local project</span></div><Icon name="dots" size={18} /></div><div className="demo-note"><span className="status-live" />Dữ liệu demo đang bật</div></div>
+      <div className="sidebar__footer"><div className="workspace-card"><div className="workspace-card__avatar">DS</div><div><strong>Demo workspace</strong><span>Local</span></div><Icon name="dots" size={18} /></div><div className="demo-note"><span className="status-live" />Demo</div></div>
     </aside>
   </>
 }

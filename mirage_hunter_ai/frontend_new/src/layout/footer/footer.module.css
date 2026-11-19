@@ -1,0 +1,136 @@
+.footer {
+  background: #111827;
+  color: #d1d5db;
+  margin-top: auto;
+}
+
+.container {
+  align-items: flex-start;
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+  width: min(100%, 1600px);
+  margin: 0 auto;
+  padding: 40px clamp(16px, 6vw, 100px) 32px;
+}
+
+.brandBlock p {
+  color: #9ca3af;
+  max-width: 56ch;
+  margin: 12px 0 0;
+  line-height: 1.6;
+}
+
+.brand {
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logoName {
+  --logo-base: #ffffff;
+}
+
+.logoAccent {
+  --logo-base: #960320;
+}
+
+.brand-shimmer {
+  color: transparent;
+  background-image:
+    linear-gradient(
+      120deg,
+      transparent 35%,
+      rgba(255, 77, 109, 0.85) 46%,
+      rgba(255, 255, 255, 0.95) 50%,
+      transparent 54%
+    ),
+    linear-gradient(var(--logo-base), var(--logo-base));
+  background-repeat: no-repeat;
+  background-size: 300% 300%, 100% 100%;
+  background-position: 100% center, 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brand-sweep 3.5s ease-in-out infinite;
+}
+
+@keyframes brand-sweep {
+  0% {
+    background-position: 100% center, 0 0;
+  }
+
+  60% {
+    background-position: -100% center, 0 0;
+  }
+
+  100% {
+    background-position: -100% center, 0 0;
+  }
+}
+
+.brand-shimmer:hover {
+  animation-duration: 1.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-shimmer {
+    animation: none;
+  }
+}
+
+.links {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-end;
+}
+
+.links a {
+  color: #d1d5db;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.links a:hover,
+.links a:focus-visible {
+  color: #ffffff;
+}
+
+.bottomBar {
+  border-top: 1px solid #374151;
+  color: #9ca3af;
+  font-size: 0.8rem;
+  padding: 16px clamp(16px, 6vw, 100px);
+  text-align: center;
+}
+
+.bottomBar p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .container {
+    flex-direction: column;
+    padding: 32px 16px 24px;
+  }
+
+  .links {
+    gap: 16px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand {
+    font-size: 1.75rem;
+  }
+
+  .links {
+    gap: 12px;
+  }
+}

@@ -1,0 +1,515 @@
+/* =========================================================
+   HERO – Mirage Hunter AI
+   - Title: màu trắng, căn phải
+   - Description: căn trái
+   - Khối visual: quỹ đạo 3D có chiều sâu
+   ========================================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+  padding: clamp(32px, 6vw, 88px);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 86% 18%, rgba(225, 67, 103, 0.2), transparent 30%),
+    radial-gradient(circle at 12% 88%, rgba(111, 69, 190, 0.24), transparent 34%),
+    #100f24;
+  color: #f8fafc;
+  box-shadow: 0 24px 70px rgba(34, 12, 44, 0.22);
+}
+
+.hero::before {
+  position: absolute;
+  z-index: 0;
+  inset: -35%;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 70% 35%, rgba(255, 91, 122, 0.3), transparent 22%),
+    radial-gradient(circle at 28% 72%, rgba(126, 87, 221, 0.24), transparent 25%);
+  filter: blur(18px);
+  animation: auroraMove 14s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 24%, rgba(255, 255, 255, 0.04) 50%, transparent 76%);
+  background-size: 220% 100%;
+  animation: lightSweep 11s ease-in-out infinite;
+}
+
+.grid {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 157, 176, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176, 148, 255, 0.08) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent);
+  opacity: 0.75;
+  animation: gridShift 24s linear infinite;
+}
+
+/* ---------- Nội dung bên trái ---------- */
+
+.content {
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+.hero .title {
+  color: #f8fafc !important;
+  text-align: right;
+  margin: 0;
+  max-width: 100%;
+  font-size: clamp(36px, 4.3vw, 50px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  text-shadow: 0 3px 18px rgba(4, 3, 15, 0.34);
+  text-wrap: balance;
+}
+
+.hero .title span {
+  color: #ff91a6;
+  text-shadow: 0 0 28px rgba(255, 96, 128, 0.24);
+}
+
+.hero .description {
+  max-width: 52ch;
+  margin: 20px 0 0;
+  text-align: left;
+  color: #d8d4e7;
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  box-sizing: border-box;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #ff8299, #c52d58);
+  color: #fff7f8;
+  box-shadow: 0 10px 26px rgba(197, 45, 88, 0.28);
+}
+
+.primaryButton:hover {
+  background: linear-gradient(135deg, #ff9eaf, #dc416a);
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  border-color: rgba(255, 145, 166, 0.42);
+  background: rgba(35, 25, 57, 0.72);
+  color: #f8fafc;
+}
+
+.secondaryButton:hover {
+  background: rgba(74, 36, 77, 0.9);
+  transform: translateY(-2px);
+}
+
+.actions a:focus-visible {
+  outline: 2px solid #ffafbd;
+  outline-offset: 4px;
+}
+
+/* ---------- Khối visual 3D ---------- */
+
+.visual {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  min-width: 0;
+  min-height: clamp(240px, 25vw, 320px);
+  aspect-ratio: 1.1;
+  margin: 0;
+  justify-self: center;
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.25s ease-out;
+}
+
+/* Vòng đứng, xoay quanh trục dọc */
+.visual::before {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  width: 92%;
+  aspect-ratio: 1;
+  content: "";
+  border: 1px solid rgba(255, 145, 166, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(20deg) rotateY(0deg);
+  animation: ringVertical 22s linear infinite;
+  pointer-events: none;
+}
+
+/* Bóng sáng dưới sàn */
+.visual::after {
+  position: absolute;
+  bottom: 9%;
+  left: 50%;
+  width: 62%;
+  height: 12%;
+  content: "";
+  background: radial-gradient(ellipse at center, rgba(240, 74, 116, 0.35), transparent 70%);
+  filter: blur(6px);
+  transform: translateX(-50%);
+  animation: floorPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.orbit,
+.core {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit {
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 145, 166, 0.36);
+  border-radius: 50%;
+}
+
+/* Vệ tinh sáng chạy trên vòng */
+.orbit::after {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  content: "";
+  border-radius: 50%;
+  background: #ffb1bd;
+  box-shadow: 0 0 10px 3px rgba(255, 120, 150, 0.8);
+}
+
+.orbitOuter {
+  width: 76%;
+  animation: ringOuter 16s linear infinite;
+}
+
+.orbitInner {
+  width: 53%;
+  border-style: dashed;
+  border-color: rgba(181, 145, 255, 0.52);
+  animation: ringInner 11s linear infinite;
+}
+
+.orbitInner::after {
+  background: #c9b0ff;
+  box-shadow: 0 0 10px 3px rgba(160, 120, 255, 0.8);
+}
+
+.core {
+  display: grid;
+  place-content: center;
+  gap: 6px;
+  width: clamp(92px, 10vw, 134px);
+  aspect-ratio: 1;
+  border: 1px solid #ff718c;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #852b52, #211438 72%);
+  box-shadow: 0 0 40px rgba(240, 74, 116, 0.34), 0 0 70px rgba(126, 87, 221, 0.2);
+  text-align: center;
+  animation:
+    coreFloat 7s ease-in-out infinite,
+    corePulse 4s ease-in-out infinite;
+}
+
+.core strong {
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1;
+}
+
+.core span {
+  color: #ffc1cb;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.node {
+  position: absolute;
+  display: grid;
+  gap: 4px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 145, 166, 0.32);
+  border-radius: 10px;
+  background: rgba(27, 22, 48, 0.82);
+  box-shadow: 0 12px 28px rgba(11, 7, 24, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.node span {
+  color: #d7cfe3;
+  font-size: 12px;
+}
+
+.node strong {
+  color: #ffb1bd;
+  font-size: 16px;
+}
+
+/* Mỗi thẻ một độ sâu (--z) khác nhau */
+.nodeBrightness {
+  --z: 80px;
+  top: 14%;
+  left: 2%;
+  animation: nodeDrift 5s ease-in-out infinite;
+}
+
+.nodeBlur {
+  --z: 20px;
+  top: 26%;
+  right: 2%;
+  animation: nodeDrift 5.8s ease-in-out -1.4s infinite;
+}
+
+.nodeJpeg {
+  --z: -40px;
+  bottom: 19%;
+  right: 12%;
+  animation: nodeDrift 5.4s ease-in-out -2.2s infinite;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-inline: 8px;
+  color: #c9c0d8;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ---------- Keyframes ---------- */
+
+@keyframes auroraMove {
+  0% {
+    transform: translate3d(-3%, -2%, 0) scale(0.96) rotate(0deg);
+  }
+
+  100% {
+    transform: translate3d(4%, 3%, 0) scale(1.06) rotate(8deg);
+  }
+}
+
+@keyframes lightSweep {
+  0%,
+  35% {
+    background-position: 180% 0;
+  }
+
+  70%,
+  100% {
+    background-position: -20% 0;
+  }
+}
+
+@keyframes gridShift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(46px, 46px, 0);
+  }
+}
+
+@keyframes ringOuter {
+  from {
+    transform: translate(-50%, -50%) rotateY(-18deg) rotateX(66deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotateY(-18deg) rotateX(66deg) rotateZ(360deg);
+  }
+}
+
+@keyframes ringInner {
+  from {
+    transform: translate(-50%, -50%) rotateY(24deg) rotateX(-62deg) rotateZ(360deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotateY(24deg) rotateX(-62deg) rotateZ(0deg);
+  }
+}
+
+@keyframes ringVertical {
+  from {
+    transform: translate(-50%, -50%) rotateX(20deg) rotateY(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotateX(20deg) rotateY(360deg);
+  }
+}
+
+@keyframes coreFloat {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateZ(40px) rotateX(8deg) rotateY(-12deg);
+  }
+
+  50% {
+    transform: translate(-50%, -53%) translateZ(60px) rotateX(-8deg) rotateY(12deg);
+  }
+}
+
+@keyframes corePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 34px rgba(240, 74, 116, 0.3), 0 0 64px rgba(126, 87, 221, 0.16);
+  }
+
+  50% {
+    box-shadow: 0 0 52px rgba(240, 74, 116, 0.48), 0 0 84px rgba(126, 87, 221, 0.3);
+  }
+}
+
+@keyframes nodeDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, var(--z)) rotateY(-8deg);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, calc(var(--z) + 30px)) rotateY(8deg);
+  }
+}
+
+@keyframes floorPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero .title {
+    text-align: left;
+  }
+
+  .visual {
+    width: min(100%, 420px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+
+  .hero .title {
+    font-size: clamp(28px, 8vw, 36px);
+    text-align: left;
+  }
+
+  .visual {
+    min-height: 230px;
+  }
+
+  .node {
+    padding: 6px 8px;
+  }
+
+  .node span {
+    font-size: 10px;
+  }
+
+  .node strong {
+    font-size: 14px;
+  }
+
+  .caption {
+    font-size: 11px;
+  }
+}
+
+/* ---------- Giảm chuyển động ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after,
+  .visual::before,
+  .visual::after,
+  .grid,
+  .orbitOuter,
+  .orbitInner,
+  .core,
+  .nodeBrightness,
+  .nodeBlur,
+  .nodeJpeg {
+    animation: none;
+  }
+
+  .visual {
+    transition: none;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    transition: none;
+  }
+
+  .primaryButton:hover,
+  .secondaryButton:hover {
+    transform: none;
+  }
+}
