@@ -21,6 +21,38 @@
   line-height: 1.6;
 }
 
+.contactDetails {
+  display: grid;
+  gap: 6px;
+  margin-top: 16px;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.contactDetails a,
+.contactDetails address {
+  color: inherit;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.contactDetails a:hover,
+.contactDetails a:focus-visible {
+  color: #ffffff;
+}
+
+.contactDetails a:focus-visible {
+  outline: 2px solid #f9a8d4;
+  outline-offset: 3px;
+}
+
+.privacyNote {
+  max-width: 56ch;
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
 .brand {
   color: #ffffff;
   font-size: clamp(2rem, 4vw, 3rem);

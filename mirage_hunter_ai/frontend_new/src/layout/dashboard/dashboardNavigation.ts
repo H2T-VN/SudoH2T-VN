@@ -6,9 +6,6 @@ import {
   IoCubeOutline,
   IoLayersOutline,
   IoLocateOutline,
-  IoRefreshOutline,
-  IoScaleOutline,
-  IoSparklesOutline,
   IoStatsChartOutline,
   IoTimeOutline,
 } from "react-icons/io5";
@@ -64,16 +61,12 @@ export const dashboardMenuGroups: DashboardMenuGroup[] = [
     items: [
       { id: "failures", label: "Failure Explorer", icon: IoAlertCircleOutline },
       { id: "reports", label: "Báo cáo & xuất file", icon: IoCloudDownloadOutline },
-      { id: "history", label: "Lịch sử chạy", icon: IoTimeOutline },
-      { id: "ablation", label: "So sánh chiến lược", icon: IoScaleOutline },
-      { id: "regression", label: "Chạy lại test lỗi", icon: IoRefreshOutline },
     ],
   },
   {
     label: "Hệ thống",
     items: [
       { id: "status", label: "Trạng thái hệ thống", icon: IoCheckmarkCircleOutline },
-      { id: "experiments", label: "Kết quả thực nghiệm", icon: IoSparklesOutline },
     ],
   },
 ];

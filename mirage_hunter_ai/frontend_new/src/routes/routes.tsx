@@ -2,11 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import { HomePage } from "../features/home/HomePage";
 import { DashboardPage } from "../features/dashboard/DashboardPage";
-import { ModelsPage } from "../features/models/ModelsPage";
-import { DatasetsPage } from "../features/datasets/DatasetsPage";
 import { BaselinePage } from "../features/baseline/BaselinePage";
-import { HuntsPage } from "../features/hunts/HuntsPage";
-import { NewHuntPage } from "../features/hunts/NewHuntPage";
 import { HuntDetailPage } from "../features/hunts/HuntDetailPage";
 import { HistoryPage } from "../features/history/HistoryPage";
 import { FailureDetailPage } from "../features/history/FailureDetailPage";
@@ -29,8 +25,11 @@ const dashboardPages = {
   status: <SystemStatusPage />,
   models: <DashboardModelsPage />,
   datasets: <DashboardDatasetsPage />,
+  baseline: <BaselinePage />,
   hunt: <HuntConfigurationPage />,
   monitor: <MonitorPage />,
+  failures: <HistoryPage />,
+  reports: <ReportsPage />,
 };
 
 function DashboardRoute() {
@@ -44,24 +43,24 @@ export default function AppRoutes() {
       <Route path="/dashboard/:pageId" element={<DashboardRoute />} />
       <Route element={<MainLayout />}>
         <Route path="/mainLayout" element={<HomePage />} />
-        <Route path="/models" element={<ModelsPage />} />
-        <Route path="/datasets" element={<DatasetsPage />} />
-        <Route path="/baseline" element={<BaselinePage />} />
-        <Route path="/hunts" element={<HuntsPage />} />
-        <Route path="/hunts/new" element={<NewHuntPage />} />
+        <Route path="/models" element={<Navigate to="/dashboard/models" replace />} />
+        <Route path="/datasets" element={<Navigate to="/dashboard/datasets" replace />} />
+        <Route path="/baseline" element={<Navigate to="/dashboard/baseline" replace />} />
+        <Route path="/hunts" element={<Navigate to="/dashboard/hunt" replace />} />
+        <Route path="/hunts/new" element={<Navigate to="/dashboard/hunt" replace />} />
         <Route path="/hunts/:huntId" element={<HuntDetailPage />} />
-        <Route path="/failures" element={<HistoryPage />} />
+        <Route path="/failures" element={<Navigate to="/dashboard/failures" replace />} />
         <Route path="/failures/:failureId" element={<FailureDetailPage />} />
         <Route path="/comparisons/models" element={<ModelComparisonPage />} />
         <Route path="/comparisons/strategies" element={<StrategyComparisonPage />} />
-        <Route path="/reports" element={<ReportsPage />} />
+        <Route path="/reports" element={<Navigate to="/dashboard/reports" replace />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/docs" element={<DocsPage />} />
       </Route>
       <Route path="/" element={<Navigate to="/mainLayout" replace />} />
-      <Route path="/experiments/new" element={<Navigate to="/hunts/new" replace />} />
-      <Route path="/results" element={<Navigate to="/failures" replace />} />
-      <Route path="/minimization" element={<Navigate to="/failures/failure-101" replace />} />
+      <Route path="/experiments/new" element={<Navigate to="/dashboard/hunt" replace />} />
+      <Route path="/results" element={<Navigate to="/dashboard/failures" replace />} />
+      <Route path="/minimization" element={<Navigate to="/dashboard/failures" replace />} />
       <Route path="*" element={<Navigate to="/mainLayout" replace />} />
     </Routes>
   );

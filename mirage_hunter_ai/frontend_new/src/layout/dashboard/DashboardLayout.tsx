@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { IoArrowForward, IoMenuOutline } from "react-icons/io5";
+import { IoMenuOutline } from "react-icons/io5";
 
-import buttonStyles from "../../components/Button/button.module.css";
 import { DashboardPlaceholder } from "./DashboardPlaceholder";
 import { DashboardSidebar } from "./DashboardSidebar";
 import { dashboardPageTitles, getDashboardPath, isDashboardPageId, type DashboardPageId } from "./dashboardNavigation";
@@ -63,18 +62,11 @@ export default function DashboardLayout({ pages }: DashboardLayoutProps) {
               <button className={styles.mobileMenuButton} type="button" onClick={() => setMobileOpen(true)} aria-label="Mở menu Dashboard">
                 <IoMenuOutline size={22} aria-hidden="true" />
               </button>
-              <div>
-                <p className={styles.topbarEyebrow}>Dashboard</p>
-                <h1>{pageTitle}</h1>
-              </div>
+              <p className={styles.topbarEyebrow}>Dashboard / {pageTitle}</p>
             </div>
             <div className={styles.topbarActions}>
               <Link className={styles.homeLink} to="/mainLayout">
                 Về trang chủ
-              </Link>
-              <Link className={`${buttonStyles.button} ${buttonStyles["variant-primary"]} ${buttonStyles["size-sm"]} ${styles.startButton}`} to={getDashboardPath("hunt")}>
-                Start AI Hunt
-                <IoArrowForward size={16} aria-hidden="true" />
               </Link>
             </div>
           </header>
