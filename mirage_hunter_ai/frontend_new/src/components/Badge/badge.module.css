@@ -1,0 +1,20 @@
+.badge {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.tone-success { color: #166534; border-color: #86efac; background: #dcfce7; }
+.tone-warning { color: #9a3412; border-color: #fdba74; background: #ffedd5; }
+.tone-danger { color: #991b1b; border-color: #fca5a5; background: #fee2e2; }
+.tone-info { color: #1d4ed8; border-color: #93c5fd; background: #dbeafe; }
+.tone-neutral { color: var(--color-muted); border-color: var(--color-border); background: var(--color-surface-muted); }
+.tone-purple { color: #6d28d9; border-color: #c4b5fd; background: #ede9fe; }

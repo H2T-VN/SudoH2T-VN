@@ -6,6 +6,7 @@ import { IoSettingsSharp } from "react-icons/io5";
 import styles from "./header.module.css";
 
 const HOME_PATH = "/mainLayout";
+const marqueeCopies = Array.from({ length: 16 }, (_, index) => index);
 
 const Header = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -34,7 +35,7 @@ const Header = () => {
             <span className={`${styles["brand-shimmer"]} ${styles.logoName}`}>Mirage Hunter</span>{" "}
             <span className={`${styles["brand-shimmer"]} ${styles.logoAccent}`}>AI</span>
           </Link>
-          <small className={styles.credit}>By sudo H2T-VN</small>
+          <small className={styles.credit}></small>
         </div>
 
         {/* Nav (desktop) */}
@@ -43,6 +44,8 @@ const Header = () => {
           <a href="#demo">Demo</a>
           <a href="#history">Lịch sử lỗi</a>
           <a href="#docs">Docs</a>
+           <Link
+            to="/dashboard">Dashboard</Link>
         </nav>
 
         {/* Nav (mobile / tablet hamburger) */}
@@ -59,6 +62,8 @@ const Header = () => {
             <a href="#demo">Demo</a>
             <a href="#history">Lịch sử lỗi</a>
             <a href="#docs">Docs</a>
+             <Link
+              to="/dashboard">Dashboard</Link>
           </nav>
         </details>
 
@@ -93,8 +98,27 @@ const Header = () => {
           </Link>
 
           <Link className={styles.actionButton} to="/hunts/new">
-            Kiểm thử
+            Kiểm thử nhanh
           </Link>
+        </div>
+      </div>
+
+      <div className={styles.marquee} role="region" aria-label="Thông tin thương hiệu và bản quyền">
+        <div className={styles.marqueeViewport}>
+          <div className={styles.marqueeTrack} aria-hidden="true">
+            {marqueeCopies.map((copy) => (
+              <div className={styles.marqueeGroup} key={copy}>
+                <span className={styles.marqueeLogo}>
+                  <span className={`${styles["brand-shimmer"]} ${styles.logoName}`}></span>{" "}
+                  <span className={`${styles["brand-shimmer"]} ${styles.logoAccent}`}></span>
+                </span>
+                <span className={styles.marqueeSeparator}>•</span>
+                <span className={styles.marqueeCopyright}>By sudo H2T-VN</span>
+              </div>
+            ))}
+          </div>
+
+          <span className={styles.visuallyHidden}>Mirage Hunter AI — By sudo H2T-VN</span>
         </div>
       </div>
     </header>

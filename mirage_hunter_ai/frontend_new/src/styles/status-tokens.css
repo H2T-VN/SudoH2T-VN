@@ -1,0 +1,17 @@
+:root {
+  --status-confirmed-failure-bg: #fee2e2;
+  --status-confirmed-failure-fg: #991b1b;
+  --status-confirmed-failure-border: #fca5a5;
+  --status-candidate-bg: #ffedd5;
+  --status-candidate-fg: #9a3412;
+  --status-candidate-border: #fdba74;
+  --status-baseline-incorrect-bg: #ede9fe;
+  --status-baseline-incorrect-fg: #5b21b6;
+  --status-baseline-incorrect-border: #c4b5fd;
+  --status-not-failed-bg: #dcfce7;
+  --status-not-failed-fg: #166534;
+  --status-not-failed-border: #86efac;
+  --status-invalid-bg: #e5e7eb;
+  --status-invalid-fg: #374151;
+  --status-invalid-border: #9ca3af;
+}

@@ -1,0 +1,6 @@
+.frame {
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  padding: var(--space-4) clamp(16px, 5vw, 48px) var(--space-5);
+}
+.stack { display: grid; gap: var(--space-3); }

@@ -9,6 +9,8 @@
 
 /* Layout: [Logo] ....auto.... [Nav] [Search] [Settings] [Kiểm thử] */
 .container {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -16,6 +18,83 @@
   min-height: 72px;
   margin: 0 auto;
   padding: 12px clamp(16px, 6vw, 100px);
+}
+
+.marquee {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+
+.marqueeViewport {
+  width: min(100%, 1600px);
+  min-height: 28px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 5px clamp(16px, 6vw, 100px);
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+  will-change: transform;
+}
+
+.marqueeGroup {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+  padding-right: 56px;
+  color: #4b5563;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.marqueeLogo {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.marqueeCopyright {
+  color: #4b5563;
+}
+
+.marqueeSeparator {
+  color: #be185d;
+  font-size: 13px;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .brandBlock {
@@ -383,6 +462,18 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    animation: none;
+    transform: none;
+  }
+
+  .marqueeGroup:not(:first-child) {
+    display: none;
+  }
+
   .nav a,
   .mobileNav summary,
   .mobileMenu a,
