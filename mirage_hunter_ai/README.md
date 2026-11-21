@@ -4,6 +4,12 @@ H2T-MirageHunter là scaffold cho nền tảng kiểm tra độ bền của mode
 
 Phiên bản hiện tại tập trung vào kết nối service và hợp đồng API: frontend React/Vite, backend Spring Boot, AI service FastAPI và MySQL. Phần AI đã được bổ sung tại `ai-service/app`: ONNX inference, baseline, Hunter và minimization; xem [AI README](ai-service/README.md) và [ghi chú chuyển repo](docs/ai/monorepo-import.md). Các endpoint inference/experiment, upload và kết nối FE/BE tới pipeline AI chưa được tích hợp.
 
+## Kiro trong phần AI
+
+Kiro IDE đã giúp viết đặc tả, review code Hunter và bổ sung 53 ca kiểm thử biên.
+Ban tổ chức có thể xem từng bước và đối chiếu với file đã tạo trong
+[nhật ký phát triển phần AI với Kiro](docs/ai/kiro-development-log.md).
+
 ## Điều kiện môi trường
 
 - Docker Desktop với `docker compose` (khuyến nghị cho toàn bộ stack).

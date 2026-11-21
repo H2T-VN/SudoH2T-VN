@@ -3,6 +3,18 @@
 Code AI được chuyển từ workspace H2T-MirageHunter vào đúng cấu trúc monorepo.
 FE ở `../frontend`, Java BE ở `../backend-service`; hai phần đó không thay đổi.
 
+## Kiro trong quá trình phát triển AI
+
+Ngày 16/11/2026, nhóm dùng Kiro IDE để viết đặc tả AI từ code hiện có, review
+pipeline kiểm thử và bổ sung **53 ca kiểm thử biên** thuộc 25 nhóm. Sau review,
+Codex sửa các điểm cần xử lý và chạy lại bộ test.
+
+- [Nhật ký Kiro phần AI](../docs/ai/kiro-development-log.md) ghi lại từ lúc giao
+  việc đến lúc kiểm tra lại, kèm đường dẫn tới từng file.
+- [Bản review của Kiro](../docs/ai/kiro-review.md) và
+  [bộ kiểm thử do Kiro viết](tests/test_kiro_edge_cases.py) cho thấy đóng góp
+  trực tiếp vào phần Hunter, Oracle, ONNX và replay.
+
 ## Những gì có thể dùng
 
 - MobileNetV3-Small/Imagenette demo đã train trên Kaggle, ONNX CPU; adapter ONNX
